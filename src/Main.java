@@ -1,38 +1,41 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
-        Heap<Integer> minHeap = new Heap<>();
+    public static void main(String[] args){
+//        //1, 1, 1, 0, 1
+//        int[] binary = {0, 1, 1, 0, 1};
+//        String binaryStr = arrayToBinaryString(binary);
+//
+//        //convert binary string to decimal
+//        int decimal = Integer.parseInt(binaryStr, 2);
+//        System.out.println("decimal: " + decimal);
+//
+//        System.out.println("decimal: " + BinaryToDecimal.binaryToDecimal(binary));
+//        System.out.println("decimal: " + BinaryToDecimal.binaryToDecimal2(binary));
 
-        try {
-            Integer removedElement = minHeap.remove();
-            System.out.println("Removed element: " + removedElement);
-        } catch (Exception e) {
-            System.out.println("Exception caught: " + e.getMessage());
+//        StringBuilder sb = new StringBuilder();
+//
+//        sb.append(1);
+//
+//        sb.append(3);
+//
+//        System.out.println(sb.toString());
+
+        GCD g = new GCD();
+
+        System.out.println(g.findGCD(8, 6));
+
+    }
+
+    private static String arrayToBinaryString(int[] arr) {
+        StringBuilder sb = new StringBuilder();
+
+        for(int n : arr) {
+            sb.append(n);
         }
 
-        minHeap.insert(1);
-        minHeap.insert(8);
-        minHeap.insert(4);
-        minHeap.insert(3);
-        minHeap.insert(7);
-        minHeap.insert(5);
-
-        ArrayList<Integer> l = minHeap.heapSort();
-        System.out.println(l);//[1, 3, 4, 5，7, 8]
-
-        int[] numSeq = {1,3,2,5,4};
-
-        System.out.println(getScoreDiff.solution(5, numSeq));
-
-
-        //player1:17, 2, 4, 1, 8, 3, 6, 5
-        //player2:3
-        //player1:5 [8,7,5]
-        //player2:11 [5,7]
-        //player1:10 [7]
-        //player2:18
-
+        return sb.toString();
     }
 }
