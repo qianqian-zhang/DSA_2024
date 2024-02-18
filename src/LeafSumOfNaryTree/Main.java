@@ -13,5 +13,14 @@ public class Main {
 
         LeafSumOfNaryTree solution = new LeafSumOfNaryTree();
         System.out.println("Sum of leaves is: " + solution.getLeafSum(root));
+
+        WeightedLeafSum solution2 = new WeightedLeafSum();
+        System.out.println("Weighted Depth Sum of leaves is: " + solution2.weightedLeafSum(root));
     }
 }
+
+//       1             depth: 1
+//    /     \
+//    3   2   4        depth: 2   (2 + 4) * 2 = 12
+//   / \
+//  5   6               depth: 3   (5 + 6) * 3 = 33
