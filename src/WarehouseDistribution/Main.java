@@ -9,10 +9,12 @@ public class Main {
 
         WarehouseDistribution solution = new WarehouseDistribution();
 
-        System.out.println(solution.warehouseDis(arr));
-        System.out.println(solution.warehouseDis(arr1));
-        System.out.println(solution.warehouseDis(arr2));
-        System.out.println(solution.warehouseDis(arr3));
+//        System.out.println(solution.warehouseDis(arr));
+//        System.out.println(solution.warehouseDis(arr1));
+//        System.out.println(solution.warehouseDis(arr2));
+//        System.out.println(solution.warehouseDis(arr3));
+//        System.out.println(solution.warehouseSort(arr3));
+        System.out.println(solution.warehouseMath(arr3));
     }
 }
 
