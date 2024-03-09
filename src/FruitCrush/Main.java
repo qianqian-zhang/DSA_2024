@@ -15,7 +15,7 @@ public class Main {
         //2,2,1
         //1
 
-        int[] arr2 = { 1, 1, 1, 2, 2, 2, 3, 3};
+        int[] arr2 = { 1, 1, 2, 2, 2, 3, 3, 3};
 
         System.out.println(solution.fruitCrush(arr));
         System.out.println(solution.fruitCrush(arr1));
