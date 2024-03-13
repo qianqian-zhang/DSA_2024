@@ -21,7 +21,6 @@ public class FruitCrush {
     //4,3,2
     //2,1
 
-
     //pick integers with most frequency
 
     //1. get frequency of unique integers, put in maxheap

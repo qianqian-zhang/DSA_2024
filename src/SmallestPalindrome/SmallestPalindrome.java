@@ -42,13 +42,25 @@ public class SmallestPalindrome {
 
     }
 
-    public String smallestLexicoRearrange(String s) {
-        int[] freq = new int[26];
+    public String getSmallestPalindrome(String s) {
+        // given a string with ? as wildcard that be replaced by any letter
+        //we can return the lexicographically smallest string
+        //if not, return -1
 
+
+        //determine if we can form a palindromic string
+        //without wildcard, string of letters
+        //count how many chars that are singled out
+        //get freqncy of each letter, if it is and odd number, one char will be singled out
+        //WITH wilcard, we can pair the sigled out chars with wildcard
+        //number of singledout - wildcard > 1, can NOT form a pallindrome
         int n = s.length();
+        int[] freq = new int[26];
         int wildcard = 0;
+        int single = 0;
         for(int i = 0; i < n; i++) {
             char c = s.charAt(i);
+
             if(c == '?') {
                 wildcard++;
             }else{
@@ -56,52 +68,86 @@ public class SmallestPalindrome {
             }
         }
 
-        //check if it can form a palindrome
-        //count singled out chars
-        int single = 0;
-        for(int f : freq) {
-            if(f % 2 == 1) single++;
-        }
-        if(single - wildcard > 1) return "-1";
-
-        //pair all the singled out chars with wildcard
-        boolean hasSingle = false;
-        char last_single = 'a';
         for(int i = 0; i < 26; i++) {
-            if(freq[i] % 2 == 1 && wildcard > 0) {
-                freq[i]++;
-                wildcard--;
+            if(freq[i] % 2 == 1) {
+                single++;
 
-                char c = (char) (i + 'a');
-                last_single = c;
-                hasSingle = true;
             }
         }
 
-        if(hasSingle && wildcard % 2 == 1) {
+        if(single - wildcard > 1) return "-1";
+
+
+        //put the smallest chars in the front of the string, larger chars in center
+        //use ? to pair with singled out chars
+        //after pairing all singles, if there is an odd number of wildcard chars left, undo last pairing
+        //recover last largest singledout char, now we can an even number of wildcard chars
+        //*****put largest singled out char in middle*****
+        //otherwise, dont recover, replace rest of wildcard chars with 'a'
+        boolean hasSingle = false;
+        //abc ??  ab c ba
+        char last_single = 'a';
+        for(int i = 0; i < 26; i++) {
+            if(freq[i] % 2 == 1) {
+                if(wildcard > 0) {
+                    //current char no longer singled out
+                    wildcard--;
+                    freq[i]++;
+                }else{
+                    //run out of wildcard, so singled out
+                    hasSingle = true;
+                }
+
+                char c = (char)(i + 'a');
+                last_single = c;
+
+            }
+        }
+        //abc **** --> aabbcc * recover c
+        if(wildcard % 2 == 1) {
+            //recover last single
             freq[last_single - 'a']--;
             wildcard++;
-        }else{
-            hasSingle = false;
+            hasSingle = true;
         }
+
+        //replace rest of wildcard with 'a'
         freq[0] += wildcard;
 
-        //given a set of letters, form the smallest palindrome (answer is guaranteed
-
         StringBuilder sb = new StringBuilder();
+
         for(int i = 0; i < 26; i++) {
             if(freq[i] > 0) {
+                int frequency = freq[i];
                 char c = (char)(i + 'a');
-                for(int j = 0; j < freq[i] / 2; j++) {
+
+                //append half of it
+                for(int j = 0; j < frequency / 2; j++) {
                     sb.append(c);
                 }
             }
         }
 
+        if(freq[0] % 2 == 1) {
+            hasSingle = true;
+            last_single = 'a';
+        }
         String firstHalf = sb.toString();
-        if(hasSingle) firstHalf += last_single;
+        //get second half of palindrome
         String secondHalf = sb.reverse().toString();
+
+        //check if theres a single char
+        if(hasSingle) {
+            firstHalf += last_single;
+        }
 
         return firstHalf + secondHalf;
     }
+
+
+    //"ai?a??u"
+    //aa i u ???
+    //pair all: iiuu ?
+    //a i u i a  ??
+    //aa i u i aa
 }

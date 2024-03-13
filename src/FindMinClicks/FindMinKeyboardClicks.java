@@ -3,13 +3,18 @@ package FindMinClicks;
 import java.util.Arrays;
 
 public class FindMinKeyboardClicks {
+//    1   2   3
+//    abc def ghi
+//    4   5   6
+//    jkl mno pqr
+//    7   8   9
+//    stu vwx yz
+
+    //given a String letters, design a keyboard to minimize the number of clicks a user needs to type out these letters
+    //you can rearrange letters for each button on the keypad
+    //for example, when you want to type b, you have to click button 1 twice, type 0, click button 3 times
 
     public int findMinimumKeypadClickCount(String letters) {
-        // write your code here
-
-        //9 buttons
-        //8 buttons have 3 letters, 1 has 2
-
         //get char freuncy of letters
         int[] freq = new int[26];
         int n = letters.length();

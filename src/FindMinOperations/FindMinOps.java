@@ -3,11 +3,8 @@ package FindMinOperations;
 public class FindMinOps {
 
     public int findMinimumOperations(String image) {
-        // write your code here
-
         //given a binary string
         //pick  a char, append it to the end
-
         //min number of operations needed to reverse the string
 
         //longest sequence
@@ -49,6 +46,4 @@ public class FindMinOps {
 
 //0100110
 //0110010
-
-
 }

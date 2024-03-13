@@ -3,8 +3,6 @@ package FindFirstUnique;
 public class FindFirstUnique {
 
     public int findFirstUnique(String s) {
-        // write your code here
-
         //given a string
         //return index of first unique char
         //1 based
