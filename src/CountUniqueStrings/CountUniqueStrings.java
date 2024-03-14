@@ -52,4 +52,21 @@ public class CountUniqueStrings {
 
     }
 
+    public int countUnique(String s) {
+        int counter = 0;
+        int i = 0;
+        int j = s.length() - 1;
+        //abbc
+        //6
+        while (i < j) {
+            if (s.charAt(i) != s.charAt(j)) {
+                counter++;
+            }
+            i++;
+            j--;
+        }
+
+        return counter;
+    }
+
 }
