@@ -1,3 +1,5 @@
+package AmazonVO;
+
 public class BinaryToDecimal {
     public static int binaryToDecimal(int[] arr) {
         // int[] binaryArray = {1, 0, 1, 0, 1};
