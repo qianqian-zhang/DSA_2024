@@ -47,7 +47,7 @@ public class ErasePairs {
         //monotonic stack?
         //"BAXAXA"  ABX
         //BAX
-        boolean visited[] = new boolean[26];
+        boolean[] visited = new boolean[26];
         for(int i = 0; i < n; i++) {
             char c = s.charAt(i);
             if(!set.contains(c)) continue;
